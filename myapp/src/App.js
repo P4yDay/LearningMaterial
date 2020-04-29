@@ -15,17 +15,26 @@ state = {
 addAPerson =(person) => {
     //Take person and add to state
   //console.log(person);
-  
   //give a random id
   person.id = Math.random();
   //add it to state
   //spread operator
   let people = [...this.state.people, person]
-
   this.setState({
     people: people
   })
 }
+
+deletePerson = (id) => {
+  let someone = this.state.people.filter(person => {
+    return person.id !== id
+  })
+
+  this.setState({
+    people: someone
+  })
+}
+
 
 render(){
   return (
@@ -35,7 +44,7 @@ render(){
       </h1>
       <p> Welcome :) </p>
       <Dapper people={this.state.people} />
-      <AddPerson person={ this.addAPerson }/>
+      <AddPerson deletePerson={ this.deletePerson } person={ this.addAPerson }/>
     </div>
   );
 }

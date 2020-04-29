@@ -14,9 +14,6 @@ import React from 'react'
     //     }
     //     else return null;
     //     })
-
-
-
     
 // same output as above but refactor to a teneray operator
     const list = people.map(dapp =>{
@@ -25,6 +22,7 @@ import React from 'react'
             <div>Name: { dapp.name }</div>
             <div>Age: { dapp.age } </div> 
             <div>Hometown: { dapp.ht } </div>
+            <button onClick={() => dapp.deletePerson(dapp.id)}>Delete Person</button>
       </div>
       ) : null 
     })
